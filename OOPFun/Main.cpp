@@ -24,15 +24,21 @@ int main() {
 	// myString.size() myString.at(0)
 	
 	// we can have pointers to objects
-	Book hp3 = hp2; // copy of hp2
+	Book hp3; // invokes DVC
 	hp3.setTitle("Prisoner of Azkaban");
 	Book * bookPtr = &hp3;
 	// can use ->
 	bookPtr->display();
-	// dyn allocated a Book if we wanted to...
 	
 	Book hp4("Goblet of Fire", "JKR", 450); // invokes EVC
 	hp4.display();
+	
+	// dyn allocated a Book if we wanted to...
+	Book * hp5Ptr = new Book; // invokes DVC
+	// the book object that hp5Ptr points to is in the heap!! not the stack
+	hp5Ptr->setTitle("Order of the Phoenix");
+	hp5Ptr->display();
+	delete hp5Ptr; // invokes destructor
 
 	return 0;
 }
