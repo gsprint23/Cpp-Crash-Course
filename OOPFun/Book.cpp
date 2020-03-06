@@ -19,6 +19,7 @@ Book::Book(string t, string a, int n) {
 
 // copy constructor
 Book::Book(const Book& otherBook) {
+	cout << "Hello from copy constructor" << endl;
 	title = otherBook.title;
 	author = otherBook.author;
 	// need to allocate this new book's own memory for numPages
@@ -66,12 +67,24 @@ void Book::display() {
 	cout << "Number of pages: " << *numPages << endl;
 }
 
-const Book Book::operator=(const Book &right) {
-	cout << "Hello from operator=" << endl;
+const Book & Book::operator=(const Book & right) {
+	// hp3 = hp2;
+	// hp2 is the right side of the =
+	// hp3 is the left side of the = 
+	// hp2 is the parameter
+	// hp3 is the inovking object
+	// this is a reserved word that is a pointer to the invoking object
+	// this is passed as a hidden argument to all non-static member function
+	// good practice to check that we aren't doing self assignment
+	// hp3 = hp3
 	if (this != &right) {
 		title = right.title;
 		author = right.author;
-		*numPages = *(right.numPages);
+		*numPages = *(right.numPages); // copy integers, not addresses
+		// copy the indirect values, not the pointers (no addresses are copied)!
 	}
+	// think about this
+	// hp3 = hp2 = hp1;
 	return *this;
 }
+

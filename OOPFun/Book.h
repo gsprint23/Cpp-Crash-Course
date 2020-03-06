@@ -68,8 +68,9 @@ class Book {
 		
 		void display();
 		
-		// overloaded operators
-		const Book operator=(const Book&);
+		// operator overloading
+		const Book & operator=(const Book &);
+		
 };
 
 #endif
