@@ -24,7 +24,7 @@ class Book {
 		// attributes
 		string title;
 		string author;
-		int numPages;
+		int * numPages;
 	public:
 		// a constructor is a special member function that creates objects by initializing their attribute values
 		// c++ always has a default constructor that is automatically called everytime a Book object is made... this default constructor does nothing

@@ -24,15 +24,35 @@ int main() {
 	// myString.size() myString.at(0)
 	
 	// we can have pointers to objects
-	Book hp3 = hp2; // copy of hp2
+	/*Book hp3 = hp2; // copy of hp2
 	hp3.setTitle("Prisoner of Azkaban");
 	Book * bookPtr = &hp3;
 	// can use ->
-	bookPtr->display();
-	// dyn allocated a Book if we wanted to...
+	bookPtr->display();*/
+	// PROBLEM when numPages is dyn allocated
+	// why? the mem address of numPages in hp2 is copied to numPages in hp3
+	// hp3 is freed before hp2
+	// so we get a double free detected when we destruct hp2 and call delete numPages
+	// SOLUTION? define a copy constructor
+	// where we allocate new member for numPages in hp3
 	
 	Book hp4("Goblet of Fire", "JKR", 450); // invokes EVC
 	hp4.display();
+	
+	// 2 distinct implementations of "dyn mem alloc and objects"
+	// 1) dyn allocate a Book object
+	Book * hp5Ptr = new Book("Order of the Phoenix", "JKR", 600); // EVC
+	hp5Ptr->display();
+	delete hp5Ptr;
+	// 2) dyn allocate attributes of a Book object
+	
+	// rule of three
+	// if you define any of the following, then you should define all three
+	// 1) destructor
+	// 2) copy constructor
+	// Book hp3 = hp2;
+	// 3) memberwise copy assignment operator (operator overloading)
+	// hp3 = hp2;
 
 	return 0;
 }

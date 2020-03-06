@@ -5,19 +5,22 @@ Book::Book() {
 	// initialize attributes to logical zero values
 	title = "DEFAULT TITLE";
 	author = "DEFAULT AUTHOR";
-	numPages = 0;
+	numPages = new int;
+	*numPages = 0;
 }
 
 // EVC
 Book::Book(string t, string a, int n) {
 	title = t;
 	author = a;
-	numPages = n;
+	numPages = new int;
+	*numPages = n;
 }
 
 Book::~Book() {
-	cout << "Hello from Book destructor" << endl;
+	cout << "Hello from Book destructor... title: " << title << endl;
 	// should release resources like dyn alloc mem
+	delete numPages;
 }
 
 // :: scope resolution operator
@@ -30,7 +33,7 @@ string Book::getAuthor() {
 	return author;
 }
 int Book::getNumPages(){
-	return numPages;
+	return *numPages;
 }
 
 void Book::setTitle(string newTitle) {
@@ -42,7 +45,7 @@ void Book::setAuthor(string newAuthor) {
 }
 
 void Book::setNumPages(int newNumPages) {
-	numPages = newNumPages;
+	*numPages = newNumPages;
 }
 
 void Book::display() {
@@ -51,5 +54,5 @@ void Book::display() {
 	// what ever object is before the .display()
 	cout << "Title: " << title << endl;
 	cout << "Author: " << author << endl;
-	cout << "Number of pages: " << numPages << endl;
+	cout << "Number of pages: " << *numPages << endl;
 }
