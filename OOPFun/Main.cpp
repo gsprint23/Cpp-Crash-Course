@@ -24,11 +24,11 @@ int main() {
 	// myString.size() myString.at(0)
 	
 	// we can have pointers to objects
-	/*Book hp3 = hp2; // copy of hp2
+	Book hp3 = hp2; // copy of hp2... invokes the copy constructor if one exists, if one doesn't exist then performs memberwise copy assignment
 	hp3.setTitle("Prisoner of Azkaban");
 	Book * bookPtr = &hp3;
 	// can use ->
-	bookPtr->display();*/
+	bookPtr->display();
 	// PROBLEM when numPages is dyn allocated
 	// why? the mem address of numPages in hp2 is copied to numPages in hp3
 	// hp3 is freed before hp2
@@ -52,7 +52,7 @@ int main() {
 	// 2) copy constructor
 	// Book hp3 = hp2;
 	// 3) memberwise copy assignment operator (operator overloading)
-	// hp3 = hp2;
+	hp3 = hp2;
 
 	return 0;
 }

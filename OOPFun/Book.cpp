@@ -17,6 +17,15 @@ Book::Book(string t, string a, int n) {
 	*numPages = n;
 }
 
+// copy constructor
+Book::Book(const Book& otherBook) {
+	title = otherBook.title;
+	author = otherBook.author;
+	// need to allocate this new book's own memory for numPages
+	numPages = new int;
+	*numPages = *(otherBook.numPages);
+}
+
 Book::~Book() {
 	cout << "Hello from Book destructor... title: " << title << endl;
 	// should release resources like dyn alloc mem

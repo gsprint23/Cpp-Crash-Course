@@ -37,6 +37,15 @@ class Book {
 		// explicit value constructor (EVC) accpets arguments to intialize attribute values to
 		Book(string, string, int); // EVC prototype
 		// same rules for function overloading apply to constructor overloading
+		// a copy constructor is a constructor that is called when a new object is initialized with another object's data
+		// called in one of two cases
+		// 1) Book b(otherBook); // where otherBook is a Book object
+		// 2) Book b = otherBook; // where otherBook is a Book object
+		// NOT called with
+		// b = otherBook; 
+		// because this is not object creation since b already exists, this is memberwise copy assignment
+		Book(const Book&); // copy constructor
+		
 		// destructor is a special member function that is called automatically when an object is about to be destroyed (AKA destructed AKA deallocated)
 		// what should a destructor do?
 		// free/release any resources (e.g. close files)
