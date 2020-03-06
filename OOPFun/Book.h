@@ -24,11 +24,10 @@ class Book {
 		// attributes
 		string title;
 		string author;
-		int * numPages; // points to dynamically allocated int
+		int numPages;
 	public:
 		// a constructor is a special member function that creates objects by initializing their attribute values
 		// c++ always has a default constructor that is automatically called everytime a Book object is made... this default constructor does nothing
-		// once we define our own constructor, we lose the default constructor...
 		// we want to override the default constructor in order to properly initialize Books
 		// constructors have no return type
 		// we can overload constructors
