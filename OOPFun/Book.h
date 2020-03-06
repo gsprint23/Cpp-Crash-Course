@@ -67,6 +67,9 @@ class Book {
 		void setNumPages(int);
 		
 		void display();
+		
+		// overloaded operators
+		const Book operator=(const Book&);
 };
 
 #endif

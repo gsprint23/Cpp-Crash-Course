@@ -65,3 +65,13 @@ void Book::display() {
 	cout << "Author: " << author << endl;
 	cout << "Number of pages: " << *numPages << endl;
 }
+
+const Book Book::operator=(const Book &right) {
+	cout << "Hello from operator=" << endl;
+	if (this != &right) {
+		title = right.title;
+		author = right.author;
+		*numPages = *(right.numPages);
+	}
+	return *this;
+}
