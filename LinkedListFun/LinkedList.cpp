@@ -17,6 +17,7 @@ LinkedList::~LinkedList() {
 		delete currNode;
 		currNode = nextNode;
 	}
+	head = NULL; // for good practice
 }
 
 void LinkedList::insertAtFront(int newValue) {
