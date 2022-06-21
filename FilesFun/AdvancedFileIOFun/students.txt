@@ -1,0 +1,11 @@
+Jane Student
+Freshman
+3.5
+
+Joe Schmoe
+Senior
+3.7
+
+Mary Lamb
+Sophomore
+2.5
